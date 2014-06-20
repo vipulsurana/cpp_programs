@@ -1,4 +1,3 @@
 cpp_programs
 ============
-
-Practice Questions
+8 questions given including algorithms and code.
