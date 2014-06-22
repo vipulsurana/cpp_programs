@@ -1,0 +1,41 @@
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+
+class Rev
+{
+	int count(char *str);
+	public:
+	void reverse(char *str);
+};
+
+int Rev::count(char *str)
+{
+	int i;
+	for(i=0 ; str[i]!='\0'; i++)
+	{
+	}
+	return i;
+}
+
+void Rev::reverse(char *str)
+{
+	int i,j,k,temp;
+	i=count(str);
+	for(j=0 , k=i-1 ; j<k ; j++ , k--)
+	{
+		temp=str[j];
+		str[j]=str[k];
+		str[k]=temp;
+	}
+}
+
+void main()
+{
+	clrscr();
+	char str[]="Vipul";
+	Rev r1;
+	r1.reverse(str);
+	cout<<"Reverse of the String is:"<<str;
+	getch();
+}
