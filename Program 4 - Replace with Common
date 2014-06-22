@@ -1,0 +1,38 @@
+#include<iostream.h>
+#include<conio.h>
+
+class Space
+{
+	public:
+	void Replace(char *str,char *string);
+};
+
+void Space::Replace(char *str,char *string)
+{
+	int i,j=0;
+	for(i=0;str[i]!='\0';i++,j++)
+	{
+		if(str[i]==' ')
+		{
+			string[j]='%';
+			string[j+1]='2';
+			string[j+2]='0';
+			j=j+2;
+		}
+		else
+		{
+			string[j]=str[i];
+		}
+	}
+	string[j]='\0';
+}
+
+void main()
+{
+	clrscr();
+	char str[]="I am the best",string[50];
+	Space s1;
+	s1.Replace(str,string);
+	cout<<"New String is:"<<string;
+	getch();
+}
