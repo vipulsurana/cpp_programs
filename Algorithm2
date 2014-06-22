@@ -1,0 +1,27 @@
+Design an algorithm and write code to remove the duplicate characters in a string without using any additional buffer.
+NOTE: One or two additional variables are fine, an extra copy of the array is not.
+FOLLOW UP
+Write the test cases for this method
+
+Answer:
+
+checkUnique(str)
+The following algorithm is going to check if there is any unique character in the string 'str' :
+1) [Initialize counter] set i = 0,flag = 0
+2) Repeat step 3,4 and 8 while str[i] != NULL
+3) set j = i + 1
+4) Repeat step 5 to 7 while while str[j] != NULL
+5) if str[i] = str[j] then initiate the function deleteChar()
+6) set flag = 1 and j = j - 1
+7) j = j + 1
+8) i = i + 1
+
+deleteChar(str,j)
+The following algorithm is going to delete the duplicate character and shift the upcoming characters.
+str is the complete string, j is the position which character will be deleted.
+1) [Initialize counter] i = j
+2) Repeat step 3 & 4 while str[i] != NULL
+3) str[i] = str[i+1]
+4) i = i + 1 
+5) Exit
+
