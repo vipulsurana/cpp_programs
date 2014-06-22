@@ -1,0 +1,46 @@
+#include<iostream.h>
+#include<conio.h>
+
+class Unichar
+{
+	int checkUnique(char *str);	//privately defined function for
+	public:                         //checking uniqueness of characters
+	void display(char *str);	//publicly defined to access from main()
+};
+
+
+int Unichar::checkUnique(char *str)
+{
+	for(int i=0;str[i]!='\0';i++)
+	{
+		for(int j=i+1;str[j]!='\0';j++)
+		{
+			if(str[i]==str[j])
+			{
+				return 0;	//return if repeated chars
+			}
+		}
+	}
+	return 1;				//return if all unique chars
+}
+
+
+void Unichar::display(char *str)
+{
+	if(checkUnique(str))
+		cout<<"String has unique characters.";
+	else
+		cout<<"Same character appeared.";
+}
+
+
+void main()
+{
+	clrscr();
+	char str[]="vipul";
+	Unichar u1;
+	u1.display(str);			//function call using object
+	// create a function to make it upper or lower
+	getch();
+}
+
