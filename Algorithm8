@@ -1,0 +1,16 @@
+Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0.
+
+Answer:
+
+The following algorithm is going to check if there is any 0 in M*N matrix, if any then replace the whole column and row by 0 :
+1) [Initialize counter] i=0, j=0, p=0, Set a[3][3]={1,2,3,4,5,6,7,8,9} and b[3][3]= {1,1,1,1,1,1,1,1,1}
+2) Repeat step 3 and 10 while i<3
+3) Repeat steps 4, 5 and 9 while j<3
+4) if a[i][j] = 0 then
+5) Repeat steps 6 to 8 while p<3
+6) set b[i][p] = 0
+7) set b[p][j] = 0
+8) set p = p + 1
+9) set j = j + 1
+10) set i = i + 1
+11) Exit [End of all the loops]
