@@ -1,0 +1,13 @@
+Implement an algorithm to determine if a string has all unique characters.
+What if you can not use additional data structures?
+
+Answer:
+
+checkUnique(str)
+The following algorithm is going to check if there is any unique character in the string 'str' :
+1) [Initialize counter] set i = 0
+2) Repeat step 3 and 4 while str[i] != NULL
+3) set j = i + 1
+4) Repeat step 5 while while str[j] != NULL
+5) if str[i] = str[j] then return 0
+6) return 1 [After end of step 2]
