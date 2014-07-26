@@ -1,0 +1,69 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+  int mat_size;
+  cout<<"\n Enter matrix size (in number): ";
+
+  if(cin>>mat_size){
+
+       int** image = new int*[mat_size];
+       int** temp_Image = new int*[mat_size];
+       int count= 1;
+       
+       for (int i = 0; i < mat_size; i++)
+         image[i]= new int[mat_size];
+   
+       for (int i = 0; i < mat_size; i++)
+         temp_Image[i]= new int[mat_size];
+   
+       bool inputFlag = true;
+
+       // Fill the matrix 
+        for (int i = 0; i < mat_size; ++i) {
+            
+            for (int j = 0; j <mat_size; ++j) {
+              
+                cout<<"\nEnter the value for image position ["<<i<<"]["<<j<<"] ";
+                
+                if(cin>>image[i][j]) {
+                 } else {
+                  inputFlag=false;
+                  break;
+                 }
+            }           
+            if(!inputFlag)
+              break;   
+        }
+
+        if(inputFlag){
+            cout<<"\n The provided image is\n";
+            for (int i = 0; i < mat_size; ++i) {
+              for (int j = 0; j < mat_size; ++j) {
+                cout<<image[i][j];
+                cout<<" ";
+              }
+              cout<<"\n";
+            }
+
+          // rotating the image
+          for (int i = 0; i < mat_size; ++i) {
+            for (int j = 0; j <mat_size; ++j) {
+              temp_Image[i][j]=image[(mat_size-1)-j][i];
+            }
+          }
+          
+          cout<<"\n Rotated Matrix: \n";
+          for (int i =0; i<mat_size; i++) {
+            for (int j=0; j<mat_size; j++) {
+              cout<<temp_Image[i][j];
+              cout<<" ";
+            }
+            cout<<"\n";
+          }
+        }else
+         cout<<"\nPlease enter only integer.";
+   }else
+    cout<<"\nPlease enter only integer.";
+ return 0;
+}
