@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+class StrReverse {
+
+public:
+	// function to reverse string
+	string reverse (string str) {
+	string tempStr = "";
+
+	for (int i=0; i<str.length( ) ; i++)
+	tempStr = str[i] + tempStr;
+
+	return tempStr;
+}
+};
+
+int main() {
+	string inputString;
+	cout<<"Enter a string to reverse: \n";
+	getline (cin,inputString);
+	StrReverse obj;
+
+	if(inputString.length()<2){
+		cout<<"Please enter string of more than 2 characters: \n";
+		std::exit(EXIT_FAILURE);
+	}
+	cout << obj.reverse(inputString);
+	return 0;
+ }
