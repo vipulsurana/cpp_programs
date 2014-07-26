@@ -1,0 +1,78 @@
+#include<iostream>
+using namespace std;
+
+class Colinear {
+	public:
+	// Function to check points are co-linear or not
+	bool checkPoint(float** pointArray,int totalPoints){
+	float m, slope; int i;
+
+	bool colinearFlag=true;
+	// check slope of two points
+	for (i = 0; i<totalPoints; i++) {
+		if((i+1)!=totalPoints) {
+			m= (pointArray[i+1][1]-pointArray[i][1])==0 || (pointArray[i+1][0]-pointArray[i][0])==0?0:(pointArray[i+1][1]-pointArray[i][1])/(pointArray[i+1][0]-pointArray[i][0]);
+		}
+		else {
+			m= (pointArray[0][1]-pointArray[i][1])==0||(pointArray[0][0]-pointArray[i][0])==0?0:(pointArray[0][1]-pointArray[i][1])/(pointArray[0][0]-pointArray[i][0]);
+		}
+
+		if(i!=0) {
+			if(slope!=m) {
+				colinearFlag=false;
+				break;
+			}
+		}
+		slope=m;
+	}
+	return colinearFlag;
+	}
+};
+
+void main(){
+	int totalPoints;
+	float** pointArray;
+
+	cout<<"Enter total no of points (in integer): \n";
+	if(cin>>totalPoints) {
+
+		pointArray = new float*[totalPoints];
+
+		for(int i = 0; i < totalPoints; ++i)
+		pointArray[i] = new float[2];
+		int i;
+
+		for (i = 0; i < totalPoints; ++i) {
+			float x,y;
+
+			cout<<"\nEnter a value for position X"<<(i+1)<<" ";
+
+			if(cin>>x) {
+				pointArray[i][0] = x;
+			} else {
+				break;
+			}
+
+			cout<<"\nEnter a value for position y"<<(i+1)<<" ";
+			if(cin>>y) {
+			pointArray[i][1] = y;
+			} else {
+				break;
+				}
+		}
+
+		if(i!=totalPoints) {
+			cout<<"\n Enter only integer value";
+			exit(0);
+		} else {
+			Colinear fc;
+			if(fc.checkPoint(pointArray,totalPoints))
+			cout<<"\n Points are co-linear";
+		else
+			cout<<"\n Points are not co-linear";
+		}
+		} else {
+			cout<<"\n Enter only integer value";
+			exit(0);
+		}
+}
