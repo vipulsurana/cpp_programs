@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class ReplaceSpaces{
+   public:
+        string str;
+        ReplaceSpaces(string ch){
+           str = ch;
+        }
+     
+	// function that will replace space with %20
+		void check(){
+			string rep;
+			for( int i = 0; i< str.length(); i++){
+				if(str[i] != ' ')
+				rep += str[i];
+				else
+					rep += "%20";         
+			}
+			cout << rep;
+		}
+} ;
+
+int main() {
+
+	string inputString;
+	cout<<"Enter the string: \n";
+	getline (cin,inputString);
+
+	if(inputString.length()<2){
+		cout<<"Please enter string of more than 2 characters: \n";
+		std::exit(EXIT_FAILURE);
+	}
+
+	ReplaceSpaces obj(inputString);
+	obj.check();
+	return 0;
+}
