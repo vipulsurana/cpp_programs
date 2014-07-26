@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+class RemoveSingleChar{
+    public:
+    // Functon to get single char
+       string removeFromString(string str1,char ch){
+        
+            int n = str1.length();
+             string str2;
+              
+              for (int i = 0; i<=n; i++) {
+                  if(str1[i]==ch) {
+                    if(i==0) {
+                      if(str1[i]==str1[i+1]){
+                        str2 += str1[i];
+                      }
+                    } else {
+                      if(str1[i]==str1[i+1] || str1[i]==str1[i-1]){
+                        str2 +=str1[i];
+                      }
+                    }
+                  } else {
+                    str2 +=str1[i];
+                  }
+                }
+         return str2;
+        }
+ };
+
+int main() {
+   
+	string inputString;
+	char ch;
+	cout<<"Enter a string: \n";
+	getline (cin,inputString);
+
+	cout<<"Enter character to be removed from above entered string: \n";
+	cin>>ch;
+
+	if(inputString.length()<2){
+		cout<<"Please enter string of more than 2 characters: \n";
+		std::exit(EXIT_FAILURE);
+	}
+
+	RemoveSingleChar r1;
+	cout <<"String after removing single character are: " << r1.removeFromString(inputString,ch);
+	return 0;
+}
